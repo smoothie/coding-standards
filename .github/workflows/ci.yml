@@ -11,13 +11,16 @@ jobs:
     name: Composer
     runs-on: ubuntu-latest
     timeout-minutes: 5
+
     strategy:
+      fail-fast: true
       matrix:
         php-version:
           - 8.0
           - 8.1
           - 8.2
           - 8.3
+
     steps:
       - name: Checkout the codebase.
         uses: actions/checkout@v4
@@ -35,7 +38,8 @@ jobs:
           composer normalize --diff --dry-run --no-interaction
 
       - name: Install dependencies.
-        run: composer install
+        run: |
+          composer install
 
       - name: Audit composer.json
         run: |
