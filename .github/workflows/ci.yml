@@ -16,7 +16,6 @@ jobs:
       fail-fast: true
       matrix:
         php-version:
-          - 8.0
           - 8.1
           - 8.2
           - 8.3
@@ -36,6 +35,7 @@ jobs:
       - name: Validate composer.json
         run: |
           composer validate --ansi --strict
+          composer check-platform-reqs --ansi
           composer-normalize --diff --dry-run --no-interaction
 
       - name: Install dependencies.

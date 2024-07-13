@@ -7,6 +7,7 @@ script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 cd ${script_dir}
 
 composer validate --ansi --strict
+composer check-platform-reqs --ansi
 composer normalize --diff --dry-run --no-interaction
 composer audit --ansi --no-interaction
 
