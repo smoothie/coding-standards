@@ -8,7 +8,7 @@ on:
 
 jobs:
   check-is-installable:
-    name: Composer
+    name: [PHP] Composer
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
