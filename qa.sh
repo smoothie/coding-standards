@@ -7,8 +7,8 @@ script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 cd ${script_dir}
 
 test -f ./composer.lock && composer validate --ansi --strict
-composer check-platform-reqs --ansi
 composer normalize --diff --dry-run --no-interaction
+composer check-platform-reqs --ansi
 composer audit --ansi --no-interaction
 
 cd -

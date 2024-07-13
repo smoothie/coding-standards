@@ -35,7 +35,6 @@ jobs:
       - name: Validate composer.json
         run: |
           test -f ./composer.lock && composer validate --ansi --strict
-          composer check-platform-reqs --ansi
           composer-normalize --diff --dry-run --no-interaction
 
       - name: Install dependencies.
@@ -44,4 +43,5 @@ jobs:
 
       - name: Audit composer.json
         run: |
+          composer check-platform-reqs --ansi
           composer audit --ansi --no-interaction
